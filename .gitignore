@@ -1,0 +1,19 @@
+# General ignores
+*.log
+*.env
+
+# .NET ignores
+**/bin/
+**/obj/
+**/*.user
+**/*.vs
+**/*.swp
+
+# Angular ignores
+node_modules/
+dist/
+*.env
+
+# Ignore IDE and OS files
+.vscode/
+.DS_Store

@@ -1,0 +1,64 @@
+<div class="container">
+  <h2>Products</h2>
+  <div class="product-container">
+    <div class="table-section">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Category</th>
+            <th>Unit Price</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let product of products">
+            <td>{{product.id}}</td>
+            <td>{{product.name}}</td>
+            <td>{{product.category}}</td>
+            <td>{{product.unitPrice | currency}}</td>
+            <td>
+              <button class="btn btn-primary btn-sm" (click)="onEditClick(product)">
+                Edit
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="edit-section">
+      <h3>Edit Product</h3>
+      <form *ngIf="selectedProduct" [formGroup]="productForm" (ngSubmit)="onSave()">
+        <div class="mb-3">
+          <label for="name" class="form-label">Name</label>
+          <input type="text" class="form-control" id="name" formControlName="name">
+          <div class="text-danger" *ngIf="productForm.get('name')?.invalid && productForm.get('name')?.touched">
+            Name is required
+          </div>
+        </div>
+        
+        <div class="mb-3">
+          <label for="category" class="form-label">Category</label>
+          <input type="text" class="form-control" id="category" formControlName="category">
+          <div class="text-danger" *ngIf="productForm.get('category')?.invalid && productForm.get('category')?.touched">
+            Category is required
+          </div>
+        </div>
+        
+        <div class="mb-3">
+          <label for="unitPrice" class="form-label">Unit Price</label>
+          <input type="number" class="form-control" id="unitPrice" formControlName="unitPrice">
+          <div class="text-danger" *ngIf="productForm.get('unitPrice')?.invalid && productForm.get('unitPrice')?.touched">
+            Unit Price is required
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary" [disabled]="productForm.invalid">
+          Save Changes
+        </button>
+      </form>
+      <p *ngIf="!selectedProduct">Select a product to edit</p>
+    </div>
+  </div>
+</div>

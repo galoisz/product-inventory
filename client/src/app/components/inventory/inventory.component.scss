@@ -1,0 +1,47 @@
+.inventory-container {
+  display: flex;
+  flex-direction: column;
+  height: 90vh;
+  padding: 20px;
+
+  .filter-section {
+    height: 15%;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+    .filter-form {
+      display: flex;
+      gap: 20px;
+      align-items: flex-end;
+
+      .form-group {
+        flex: 1;
+        
+        label {
+          display: block;
+          margin-bottom: 5px;
+        }
+
+        input {
+          width: 100%;
+        }
+      }
+
+      button {
+        min-width: 100px;
+      }
+    }
+  }
+
+  .table-section {
+    height: 85%;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow-y: auto; // In case content exceeds height
+  }
+}
